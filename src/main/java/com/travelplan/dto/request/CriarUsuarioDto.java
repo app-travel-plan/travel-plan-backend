@@ -12,7 +12,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class CriarUsuarioDto {
 
 	@JsonProperty("nome")

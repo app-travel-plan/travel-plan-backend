@@ -23,6 +23,7 @@ public class UsuarioService {
 
 	public ResponseEntity<Object> criarUsuario(@NotNull CriarUsuarioDto dto) {
 		Optional<UsuarioModel> email = usuarioRepository.findByEmail(dto.getEmail());
+		
 		if(email.isPresent()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuario already exists");
 		}
@@ -47,11 +48,52 @@ public class UsuarioService {
 	
 	public ResponseEntity<Object> deletarUsuario(@NotNull UUID usuarioId) {
 		Optional<UsuarioModel> usuario = usuarioRepository.findById(usuarioId);
+		
 		if(usuario.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario not found");
 		}
+		
 		usuarioRepository.delete(usuario.get());
+		
 		return ResponseEntity.status(HttpStatus.OK).body("Usuario deleted successfully");
+	}
+	
+	public ResponseEntity<Object> buscarUsuario() {
+		return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.findAll());
+	}
+	
+	public ResponseEntity<Object> buscarUsuarioId(@NotNull UUID usuarioId) {
+		Optional<UsuarioModel> usuario = usuarioRepository.findById(usuarioId);
+		
+		if(usuario.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario not found");
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(usuario);
+	}
+	
+	public ResponseEntity<Object> atualizarUsuario(@NotNull UUID usuarioId, @NotNull CriarUsuarioDto dto) {
+		UsuarioModel usuario = usuarioRepository.findById(usuarioId);
+		
+		if(usuario.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario not found");
+		}
+		
+		usuario.setNome(dto.getNome());
+		usuario.setEmail(dto.getEmail());
+		usuario.setSenha(dto.getSenha());
+		
+		usuarioRepository.save(usuario);
+		
+		UsuarioDto usuarioToDto = UsuarioDto.builder()
+				.idUser(usuario.getIdUser())
+				.nome(usuario.getNome())
+				.email(usuario.getEmail())
+				.senha(usuario.getSenha())
+				.build();
+		
+		
+		return ResponseEntity.status(HttpStatus.OK).body(usuarioToDto);
 	}
 	
 }

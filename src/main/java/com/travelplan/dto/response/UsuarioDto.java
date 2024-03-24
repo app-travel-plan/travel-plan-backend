@@ -13,7 +13,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class UsuarioDto implements Serializable {
 
 	@JsonProperty("idUser")

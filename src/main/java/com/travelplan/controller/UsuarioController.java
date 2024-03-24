@@ -30,4 +30,19 @@ public class UsuarioController {
 		return usuarioService.deletarUsuario(usuarioId);
 	}
 	
+	@GetMapping("")
+	public ResponseEntity<Object> getUsuario() {
+		return usuarioService.buscarUsuario();
+	}
+	
+	@GetMapping("{usuarioId}")
+	public ResponseEntity<Object> getUsuarioId(@PathVariable(name = "usuarioId", required = true) UUID usuarioId) {
+		return usuarioService.buscarUsuarioId(usuarioId);
+	}
+	
+	@PutMapping("{usuarioId}")
+	public ResponseEntity<Object> putUsuario(@PathVariable(name = "usuarioId", required = true) UUID usuarioId, @Valid @RequestBody CriarUsuarioDto dto) {
+		return usuarioService.atualizarUsuario(usuarioId, dto);
+	}
+	
 }
