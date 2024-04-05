@@ -17,10 +17,19 @@ public class CriarUsuarioDto {
 	@JsonProperty("nome")
 	private String nome;
 	
+	@JsonProperty("dataNascimento")
+	private String dataNascimento;
+	
+	@JsonProperty("celular")
+	private String celular;
+	
+	@JsonProperty("cpf")
+	private String cpf;
+	
 	@JsonProperty("email")
 	private String email;
 	
 	@JsonProperty("senha")
-	private String senha;
+	private String senha;	
 	
 }

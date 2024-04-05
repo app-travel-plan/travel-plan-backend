@@ -21,6 +21,9 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID idUser;
 	private String nome;
+	private String celular;
+	private String dataNascimento;
+	private String cpf;
 	private String email;
 	private String senha;
 

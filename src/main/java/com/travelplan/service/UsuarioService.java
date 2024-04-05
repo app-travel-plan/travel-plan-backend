@@ -73,7 +73,7 @@ public class UsuarioService {
 	}
 	
 	public ResponseEntity<Object> atualizarUsuario(@NotNull UUID usuarioId, @NotNull CriarUsuarioDto dto) {
-		UsuarioModel usuario = usuarioRepository.findById(usuarioId);
+		Optional<UsuarioModel> usuario = usuarioRepository.findById(usuarioId);
 		
 		if(usuario.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario not found");

@@ -15,11 +15,17 @@ import lombok.*;
 @AllArgsConstructor
 public class UsuarioDto implements Serializable {
 
-	@JsonProperty("idUser")
-	private UUID idUser;
-	
 	@JsonProperty("nome")
 	private String nome;
+	
+	@JsonProperty("dataNascimento")
+	private String dataNascimento;
+	
+	@JsonProperty("celular")
+	private String celular;
+	
+	@JsonProperty("cpf")
+	private String cpf;
 	
 	@JsonProperty("email")
 	private String email;
