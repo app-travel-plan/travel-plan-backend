@@ -15,6 +15,9 @@ import lombok.*;
 @AllArgsConstructor
 public class UsuarioDto implements Serializable {
 
+	@JsonProperty("idUser")
+	private UUID idUser;
+	
 	@JsonProperty("nome")
 	private String nome;
 	
