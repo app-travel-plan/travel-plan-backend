@@ -30,6 +30,9 @@ public class UsuarioService {
 		
 		UsuarioModel DtoToUsuario = UsuarioModel.builder()
 				.nome(dto.getNome())
+				.celular(dto.getCelular())
+				.dataNascimento(dto.getDataNascimento())
+				.cpf(dto.getCpf())
 				.email(dto.getEmail())
 				.senha(dto.getSenha())
 				.build();
@@ -39,6 +42,9 @@ public class UsuarioService {
 		UsuarioDto usuarioToDto = UsuarioDto.builder()
 				.idUser(DtoToUsuario.getIdUser())
 				.nome(DtoToUsuario.getNome())
+				.celular(DtoToUsuario.getCelular())
+				.dataNascimento(DtoToUsuario.getDataNascimento())
+				.cpf(DtoToUsuario.getCpf())
 				.email(DtoToUsuario.getEmail())
 				.senha(DtoToUsuario.getSenha())
 				.build();
