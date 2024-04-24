@@ -1,6 +1,7 @@
 package com.travelplan.repository;
 
 import com.travelplan.model.UsuarioModel;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -15,6 +16,8 @@ public interface UsuarioRepository extends JpaRepository<UsuarioModel, UUID> {
 	
 	Optional<UsuarioModel> findByNome(@Param("nome") String nome);
 	
-	Optional<UsuarioModel> findByEmail(@Param("email") String email);
+	//Optional<UsuarioModel> findByEmail(@Param("email") String email);
+	
+	UserDetails findByEmail(String email);
 	
 }

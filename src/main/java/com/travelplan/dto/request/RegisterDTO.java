@@ -3,8 +3,15 @@ package com.travelplan.dto.request;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.travelplan.dto.response.UsuarioDto;
+import com.travelplan.model.UsuarioRole;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @Data
@@ -12,24 +19,20 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CriarUsuarioDto {
+public class RegisterDTO {
 
-	@JsonProperty("nome")
 	private String nome;
 	
-	@JsonProperty("dataNascimento")
 	private String dataNascimento;
 	
-	@JsonProperty("celular")
 	private String celular;
 	
-	@JsonProperty("cpf")
 	private String cpf;
 	
-	@JsonProperty("email")
 	private String email;
 	
-	@JsonProperty("senha")
-	private String senha;	
+	private String password;	
+	
+	private UsuarioRole role;
 	
 }
