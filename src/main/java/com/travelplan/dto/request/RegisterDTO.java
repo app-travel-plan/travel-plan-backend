@@ -33,6 +33,6 @@ public class RegisterDTO {
 	
 	private String password;	
 	
-	private UsuarioRole role;
+	private UsuarioRole role = UsuarioRole.USER;
 	
 }
